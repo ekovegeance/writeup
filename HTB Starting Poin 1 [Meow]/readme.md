@@ -1,5 +1,5 @@
 # Meow
-### Taks 1
+### Task 1
 - What does the acronym VM stand for?
 ```
 Virtual Machine
