@@ -40,4 +40,5 @@ root# nmap -v -A 10.129.245.251
 root# ftp 10.129.245.251
 the password is Anonymous
 root# get flag.txt
+root# cat flag.txt
 ```
