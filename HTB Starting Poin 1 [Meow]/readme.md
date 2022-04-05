@@ -40,3 +40,12 @@ telnet
 ```
 root
 ```
+### SUBMIT FLAG
+```
+root# ping 10.129.206.241
+root# nmap -sV 10.129.206.241
+[the open port is 23/tcp Telnet]
+
+root# telnet 10.129.206.241
+root# cat flag.txt
+```
