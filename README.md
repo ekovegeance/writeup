@@ -8,3 +8,4 @@
 ## TryHackMe
 ### Pre Security
 - [THM Cyber Security Introduction](https://writeup.ekovegeance.com/THM%20Cyber%20Security%20Introduction/)
+- [THM Network Fundamentals](https://writeup.ekovegeance.com/THM%20Network%20Fundamentals/)
