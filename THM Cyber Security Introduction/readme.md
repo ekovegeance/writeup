@@ -32,3 +32,4 @@ $300 million
 Above is a learning path roadmap. The Pre Security path will teach you the technical knowledge you need to get started in cyber security. Once you understand the basics, enroll in either the Offensive Pentesting (ethically hacking systems) or the Cyber Defense (investigating attacks and defending systems) path.
 
 The skills you acquire from the learning paths will prepare you for a career as an ethical hacker, penetration tester or cyber security analyst.
+![roadmap](https://github.com/ekovegeance/writeup/blob/main/THM%20Cyber%20Security%20Introduction/roadmapss.png)
