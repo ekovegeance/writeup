@@ -218,3 +218,117 @@ THM{TOPOLOGY_FLAWS}
 ```
 
 ### Task 2  A Primer on Subnetting
+As we've previously discussed throughout the module so far, Networks can be found in all shapes and sizes - ranging from small to large. Subnetting is the term given to splitting up a network into smaller, miniature networks within itself. Think of it as slicing up a cake for your friends. There's only a certain amount of cake to go around, but everybody wants a piece. Subnetting is you deciding who gets what slice & reserving such a slice of this metaphorical cake.
+
+Take a business, for example; You will have different departments such as:
+
+Accounting
+Finance
+Human Resources
+
+#### [Subnet22](https://assets.tryhackme.com/additional/networking-fundamentals/intro-to-lan/subnet22.png)
+
+Whilst you know where to send information in real life to the correct department, networks need to know as well. Network administrators use subnetting to categorise and assign specific parts of a network to reflect this.
+
+Subnetting is achieved by splitting up the number of hosts that can fit within the network, represented by a number called a subnet mask. Let's refer back to our diagram from the first room in this module:
+#### [Subnet1](https://assets.tryhackme.com/additional/networking-fundamentals/intro-to-lan/subnet1.png)
+
+As we can recall, an IP address is made up of four sections called octets. The same goes for a subnet mask which is also represented as a number of four bytes (32 bits), ranging from 0 to 255 (0-255).
+
+Subnets use IP addresses in three different ways:
+
+Identify the network address
+Identify the host address
+Identify the default gateway
+
+Now, in small networks such as at home, you will be on one subnet as there is an unlikely chance that you need more than 254 devices connected at one time.
+
+However, places such as businesses and offices will have much more of these devices (PCs, printers, cameras and sensors), where subnetting takes place.
+
+Subnetting provides a range of benefits, including:
+
+Efficiency
+Security
+Full control
+We'll come on to explore exactly how subnetting provides these benefits at a later date; however, for now, all we need to understand is the security element to it. Let's take the typical café on the street. This cafe will have two networks:
+
+One for employees, cash registers, and other devices for the facility
+One for the general public to use as a hotspot
+Subnetting allows you to separate these two use cases from each other whilst having the benefits of a connection to larger networks such as the Internet.
+
+- What is the technical term for dividing a network up into smaller pieces?
+```
+Subnetting
+```
+- How many bits are in a subnet mask?
+```
+32
+```
+- What is the range of a section (octet) of a subnet mask?
+```
+0-255
+```
+- What address is used to identify the start of a network?
+```
+Network Address
+```
+- What address is used to identify devices within a network?
+```
+Host Address
+```
+- What is the name used to identify the device responsible for sending data to another network?
+```
+Default Gateway
+```
+
+### Task 3  The ARP Protocol
+Recalling from our previous tasks that devices can have two identifiers: A MAC address and an IP address, the ARP protocol or Address Resolution Protocol for short, is the technology that is responsible for allowing devices to identify themselves on a network.
+
+Simply, the ARP protocol allows a device to associate its MAC address with an IP address on the network. Each device on a network will keep a log of the MAC addresses associated with other devices.
+
+When devices wish to communicate with another, they will send a broadcast to the entire network searching for the specific device. Devices can use the ARP protocol to find the MAC address (and therefore the physical identifier) of a device for communication.
+
+How does ARP Work?
+
+Each device within a network has a ledger to store information on, which is called a cache. In the context of the ARP protocol, this cache stores the identifiers of other devices on the network.
+
+In order to map these two identifiers together (IP address and MAC address), the ARP protocol sends two types of messages:
+
+ARP Request
+ARP Reply
+When an ARP request is sent, a message is broadcasted to every other device found on a network by the device, asking whether or not the device's MAC address matches the requested IP address. If the device does have the requested IP address, an ARP reply is returned to the initial device to acknowledge this. The initial device will now remember this and store it within its cache (an ARP entry). 
+
+- What does ARP stand for?
+```
+Address Resolution Protocol
+```
+- What category of ARP Packet asks a device whether or not it has a specific IP address?
+```
+Request
+```
+- What address is used as a physical identifier for a device on a network?
+```
+MAC Address
+```
+- What address is used as a logical identifier for a device on a network?
+```
+IP Address
+```
+
+### Task 4  The DHCP Protocol
+IP addresses can be assigned either manually, by entering them physically into a device, or automatically and most commonly by using a DHCP (Dynamic Host Configuration Protocol) server. When a device connects to a network, if it has not already been manually assigned an IP address, it sends out a request (DHCP Discover) to see if any DHCP servers are on the network. The DHCP server then replies back with an IP address the device could use (DHCP Offer). The device then sends a reply confirming it wants the offered IP Address (DHCP Request), and then lastly, the DHCP server sends a reply acknowledging this has been completed, and the device can start using the IP Address (DHCP ACK).
+
+- What type of DHCP packet is used by a device to retrieve an IP address?
+```
+DHCP Discover
+```
+- What type of DHCP packet does a device send once it has been offered an IP address by the DHCP server?
+```
+DHCP Request
+```
+- Finally, what is the last DHCP packet that is sent to a device from a DHCP server?
+```
+DHCP ACK
+```
+### Task 5  Continue Your Learning: OSI Model
+Continue your learning by joining the "OSI Model" room.
