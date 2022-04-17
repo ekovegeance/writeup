@@ -7,4 +7,4 @@
 
 ## TryHackMe
 ### Pre Security
-- [Web Application Security](https://writeup.ekovegeance.com)
+- [THM Cyber Security Introduction](https://writeup.ekovegeance.com/THM%20Cyber%20Security%20Introduction/)
