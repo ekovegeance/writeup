@@ -45,6 +45,8 @@ Devices will use a set of labels to identify themselves on a network, which we w
 ```
 Tim Berners-Lee
 ```
+
+
 ### Task 3  Identifying Devices on a Network
 To communicate and maintain order, devices must be both identifying and identifiable on a network. What use is it if you don't know whom you're talking to at the end of the day?
 
