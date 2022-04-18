@@ -443,3 +443,100 @@ Transmission Control Protocol
 User Datagram Protocol
 ```
 - What protocol guarantees the accuracy of data?
+```
+TCP
+```
+- What protocol doesn't care if data is received or not by the other device?
+```
+UDP
+```
+- What protocol would an application such as an email client use?
+```
+TCP
+```
+- What protocol would an application that downloads files use?
+```
+TCP
+```
+- What protocol would an application that streams video use?
+```
+UDP
+```
+
+### Task 6  Layer 3 - Network
+The third layer of the OSI model (network layer) is where the magic of routing & re-assembly of data takes place (from these small chunks to the larger chunk). Firstly, routing simply determines the most optimal path in which these chunks of data should be sent.
+
+Whilst some protocols at this layer determine exactly what is the "optimal" path that data should take to reach a device, we should only know about their existence at this stage of the networking module. Briefly, these protocols include OSPF (Open Shortest Path First) and RIP (Routing Information Protocol). The factors that decide what route is taken is decided by the following:
+
+What path is the shortest? I.e. has the least amount of devices that the packet needs to travel across.
+What path is the most reliable? I.e. have packets been lost on that path before?
+Which path has the faster physical connection? I.e. is one path using a copper connection (slower) or a fibre (considerably faster)?
+At this layer, everything is dealt with via IP addresses such as 192.168.1.100. Devices such as routers capable of delivering packets using IP addresses are known as Layer 3 devices — because they are capable of working at the third layer of the OSI model.
+[network](https://assets.tryhackme.com/additional/networking-fundamentals/intro-to-networking/what-is-the-internet/routing2.png)
+
+- What is the name of this Layer?
+```
+Network
+```
+- Will packets take the most optimal route across a network? (Y/N)
+```
+Y
+```
+- What does the acronym "OSPF" stand for?
+```
+Open Shortest Path First
+```
+- What does the acronym "RIP" stand for?
+```
+Routing Information Protocol
+```
+- What type of addresses are dealt with at this layer?
+```
+IP Addresses
+```
+
+### Task 7  Layer 2 - Data Link
+The data link layer focuses on the physical addressing of the transmission. It receives a packet from the network layer (including the IP address for the remote computer) and adds in the physical MAC (Media Access Control) address of the receiving endpoint. Inside every network-enabled computer is a Network Interface Card (NIC) which comes with a unique MAC address to identify it.
+
+MAC addresses are set by the manufacturer and literally burnt into the card; they can't be changed -- although they can be spoofed. When information is sent across a network, it's actually the physical address that is used to identify where exactly to send the information.
+
+Additionally, it's also the job of the data link layer to present the data in a format suitable for transmission.
+
+- What is the name of this Layer?
+```
+Data Link
+```
+- What is the name of the piece of hardware that all networked devices come with?
+```
+Network Interface Card
+```
+
+### Task 8  Layer 1 - Physical
+This layer is one of the easiest layers to grasp. Put simply, this layer references the physical components of the hardware used in networking and is the lowest layer that you will find. Devices use electrical signals to transfer data between each other in a binary numbering system (1's and 0's).
+
+For example, ethernet cables connecting devices, such as in the diagram below:
+[Physical](https://cdn.cnetcontent.com/19/df/19df9af1-a653-4158-ad7c-4b0f8d581431.jpg)
+
+- What is the name of this Layer?
+```
+Physical
+```
+- What is the name of the numbering system that is both 0's and 1's?
+```
+Binary
+```
+- What is the name of the cables that are used to connect devices?
+```
+Ethernet Cables
+```
+
+### Task 9  Practical - OSI Game
+Can you escape the OSI dungeon? Climb the levels in the correct order to escape the dungeon and reveal the flag! (Can you beat our staff high score of 19 seconds?)
+
+Click the "View Site" button on the right to start.
+
+- Escape the dungeon to retrieve the flag. What is the flag?
+```
+THM{OSI_DUNGEON_ESCAPED}
+```
+
