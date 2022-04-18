@@ -706,3 +706,135 @@ UDP packets are much simpler than TCP packets and have fewer headers. However, b
 
 #### Table
 
+|Header|Description|
+|--------|----------|
+|Time to Live (TTL)|This field sets an expiry timer for the packet, so it doesn't clog up your network if it never manages to reach a host or escape!|
+|Source Address|The IP address of the device that the packet is being sent from, so that data knows where to return to.|
+|Destination Address|The device's IP address the packet is being sent to so that data knows where to travel next.|
+|Source Port|This value is the port that is opened by the sender to send the TCP packet from. This value is chosen randomly (out of the ports from 0-65535 that aren't already in use at the time).|
+|Destination Port|This value is the port number that an application or service is running on the remote host (the one receiving data); for example, a webserver running on port 80. Unlike the source port, this value is not chosen at random.|
+|Data|This header is where the data, i.e. bytes of a file that is being transmitted, is stored.|
+
+Next, we'll come on to discuss how the process of a connection via UDP differs from that of something such as TCP.  We should recall that UDP is stateless. No acknowledgement is sent during a connection.
+
+
+
+The diagram below shows a normal UDP connection between Alice and Bob. In real life, this would be between two devices.
+
+[UDP Handshake](https://assets.tryhackme.com/additional/networking-fundamentals/packets-frames/udpshake-1.png)
+
+- What does the term "UDP" stand for?
+```
+User Datagram Protocol
+```
+- What type of connection is "UDP"?
+```
+stateless
+```
+- What protocol would you use to transfer a file?
+```
+TCP
+```
+- What protocol would you use to have a video call?
+- What protocol would you use to transfer a file?
+```
+UDP
+```
+
+### Task 5  Ports 101 (Practical)
+Perhaps aptly titled by their name, ports are an essential point in which data can be exchanged. Think of a harbour and port. Ships wishing to dock at the harbour will have to go to a port compatible with the dimensions and the facilities located on the ship. When the ship lines up, it will connect to a port at the harbour. Take, for instance, that a cruise liner cannot dock at a port made for a fishing vessel and vice versa.
+
+
+
+These ports enforce what can park and where — if it isn't compatible, it cannot park here. Networking devices also use ports to enforce strict rules when communicating with one another. When a connection has been established (recalling from the OSI model's room), any data sent or received by a device will be sent through these ports. In computing, ports are a numerical value between 0 and 65535 (65,535).
+
+
+
+Because ports can range from anywhere between 0-65535, there quickly runs the risk of losing track of what application is using what port. A busy harbour is chaos! Thankfully, we associate applications, software and behaviours with a standard set of rules. For example, by enforcing that any web browser data is sent over port 80, software developers can design a web browser such as Google Chrome or Firefox to interpret the data the same way as one another.
+
+
+
+This means that all web browsers now share one common rule: data is sent over port 80. How the browsers look, feel and easy to use is up to the designer or the user's decision.
+
+
+
+While the standard rule for web data is port 80, a few other protocols have been allocated a standard rule. Any port that is within 0 and 1024 (1,024) is known as a common port. Let's explore some of these other protocols below:
+
+#### Table
+
+|Protocol|Port Number|Description|
+|-------|------------|-----------|
+|File Transfer Protocol (FTP)|21|This protocol is used by a file-sharing application built on a client-server model, meaning you can download files from a central location.|
+|Secure Shell (SSH)|22|This protocol is used to securely login to systems via a text-based interface for management.|
+|HyperText Transfer Protocol (HTTP)|80|This protocol powers the World Wide Web (WWW)! Your browser uses this to download text, images and videos of web pages.|
+|HyperText Transfer Protocol Secure (HTTPS)|443|This protocol does the exact same as above; however, securely using encryption.|
+|Server Message Block (SMB)|445|This protocol is similar to the File Transfer Protocol (FTP); however, as well as files, SMB allows you to share devices like printers.|
+|Remote Desktop Protocol (RDP)|3389|This protocol is a secure means of logging in to a system using a visual desktop interface (as opposed to the text-based limitations of the SSH protocol).|
+
+We have only briefly covered the more common protocols in cybersecurity. You can find a table of the 1024 common ports listed for more information.
+
+What is worth noting here is that these protocols only follow the standards. I.e. you can administer applications that interact with these protocols on a different port other than what is the standard (running a web server on 8080 instead of the 80 standard port). Note, however, applications will presume that the standard is being followed, so you will have to provide a colon (:) along with the port number.
+
+#### Practical Challenge:
+
+Open the site attached to this task and connect to the IP address "8.8.8.8" on port "1234", and you'll receive a flag.
+
+- What is the flag received from the challenge?
+```
+THM{YOU_CONNECTED_TO_A_PORT}
+```
+
+### Task 6  Continue Your Learning: Extending Your Network
+Join the final room of this networking module: "Extending Your Network", to continue your learning and complete this module.
+
+
+# Extending Your Network
+
+### Task 1  Introduction to Port Forwarding
+Port forwarding is an essential component in connecting applications and services to the Internet. Without port forwarding, applications and services such as web servers are only available to devices within the same direct network.
+
+Take the network below as an example. Within this network, the server with an IP address of "192.168.1.10" runs a webserver on port 80. Only the two other computers on this network will be able to access it (this is known as an intranet).
+[Port Forwarding](https://assets.tryhackme.com/additional/networking-fundamentals/extending-your-network/portforwarding-int.png)
+
+If the administrator wanted the website to be accessible to the public (using the Internet), they would have to implement port forwarding, like in the diagram below:
+[Port Forwarding](https://assets.tryhackme.com/additional/networking-fundamentals/extending-your-network/portforwarding.png)
+
+With this design, Network #2 will now be able to access the webserver running on Network #1 using the public IP address of Network #1 (82.62.51.70).
+
+It is easy to confuse port forwarding with the behaviours of a firewall (a technology we'll come on to discuss in a later task). However, at this stage, just understand that port forwarding opens specific ports (recall how packets work). In comparison, firewalls determine if traffic can travel across these ports (even if these ports are open by port forwarding).
+
+Port forwarding is configured at the router of a network.
+
+- What is the name of the device that is used to configure port forwarding?
+```
+router
+```
+
+### Task 2  Firewalls 101
+A firewall is a device within a network responsible for determining what traffic is allowed to enter and exit. Think of a firewall as border security for a network. An administrator can configure a firewall to permit or deny traffic from entering or exiting a network based on numerous factors such as:
+
+
+
+Where the traffic is coming from? (has the firewall been told to accept/deny traffic from a specific network?)
+Where is the traffic going to? (has the firewall been told to accept/deny traffic destined for a specific network?)
+What port is the traffic for? (has the firewall been told to accept/deny traffic destined for port 80 only?)
+What protocol is the traffic using? (has the firewall been told to accept/deny traffic that is UDP, TCP or both?)
+Firewalls perform packet inspection to determine the answers to these questions.
+
+
+
+
+
+Firewalls come in all shapes and sizes. From dedicated pieces of hardware (often found in large networks like businesses) that can handle a magnitude of data to residential routers (like at your home!) or software such as Snort, firewalls can be categorised into 2 to 5 categories.
+
+
+
+
+We'll cover the two primary categories of firewalls in the table below:
+
+#### Table
+
+|Firewall Category|Description|
+|-----------------|-----------|
+|Stateful|This type of firewall uses the entire information from a connection; rather than inspecting an individual packet, this firewall determines the behaviour of a device based upon the entire connection. This firewall type consumes many resources in comparison to stateless firewalls as the decision making is dynamic. For example, a firewall could allow the first parts of a TCP handshake that would later fail. If a connection from a host is bad, it will block the entire device.|
+|Stateless|This firewall type uses a static set of rules to determine whether or not individual packets are acceptable or not. For example, a device sending a bad packet will not necessarily mean that the entire device is then blocked.Whilst these firewalls use much fewer resources than alternatives, they are much dumber. For example, these firewalls are only effective as the rules that are defined within them. If a rule is not exactly matched, it is effectively useless. However, these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)|
