@@ -1,4 +1,4 @@
-# WriteUp Capture The Flag 
+# WriteUp CTF{Capture The Flag} 
 
 ## Hack The Box
 - [HTB Starting Point Tier 0 (Meow)](https://writeup.ekovegeance.com/HTB%20Starting%20Poin%20Tier%200%20[Meow]/)
