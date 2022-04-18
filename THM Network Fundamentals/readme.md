@@ -540,3 +540,54 @@ Click the "View Site" button on the right to start.
 THM{OSI_DUNGEON_ESCAPED}
 ```
 
+# Packets & Frames
+### Task 1  What are Packets and Frames
+Packets and frames are small pieces of data that, when forming together, make a larger piece of information or message. However, they are two different things in the OSI model. A frame is at layer 2 - the data link layer, meaning there is no such information as IP addresses. Think of this as putting an envelope within an envelope and sending it away. The first envelope will be the packet that you mail, but once it is opened, the envelope within still exists and contains data (this is a frame).
+
+This process is called encapsulation which we discussed in room 3: the OSI model. At this stage, it's safe to assume that when we are talking about anything IP addresses, we are talking about packets. When the encapsulating information is stripped away, we're talking about the frame itself.
+
+Packets are an efficient way of communicating data across networked devices such as those explained in Task 1. Because this data is exchanged in small pieces, there is less chance of bottlenecking occurring across a network than large messages being sent at once.
+
+For example, when loading an image from a website, this image is not sent to your computer as a whole, but rather small pieces where it is reconstructed on your computer. Take the image below as an illustration of this process. The dog's picture is divided into three packets, where it is reconstructed when it reaches the computer to form the final image.[Packets](https://assets.tryhackme.com/additional/networking-fundamentals/intro-to-networking/packets/packets1.png)
+
+Packets have different structures that are dependant upon the type of packet that is being sent. As we'll come on to discuss, networking is full of standards and protocols that act as a set of rules for how the packet is handled on a device. With the Internet predicted to have approximately 50 billion devices connected by the end of 2020, things quickly get out of hand if there is no standardisation.
+
+Let's continue with our example of the Internet Protocol. A packet using this protocol will have a set of headers that contain additional pieces of information to the data that is being sent across a network.
+
+Some notable headers include:
+
+- What is the name for a piece of data when it does have IP addressing information?
+```
+Packet
+```
+- What is the name for a piece of data when it does not have IP addressing information?
+```
+Frame
+```
+### Task 2  TCP/IP (The Three-Way Handshake)
+TCP (or Transmission Control Protocol for short) is another one of these rules used in networking.
+
+
+
+This protocol is very similar to the OSI model that we have previously discussed in room three of this module so far. The TCP/IP protocol consists of four layers and is arguably just a summarised version of the OSI model. These layers are:
+
+Application
+Transport
+Internet
+Network Interface
+
+
+Very similar to how the OSI model works, information is added to each layer of the TCP model as the piece of data (or packet) traverses it. As you may recall, this process is known as encapsulation - where the reverse of this process is decapsulation.
+
+
+
+One defining feature of TCP is that it is connection-based, which means that TCP must establish a connection between both a client and a device acting as a server before data is sent.
+
+
+
+Because of this, TCP guarantees that any data sent will be received on the other end. This process is named the Three-way handshake, which is something we'll come on to discuss shortly. A table comparing the advantages and disadvantages of TCP is located below:
+| Advantages of TCP             | Disadvantages of TCP                                   |
+| ----------------- | ------------------------------------------------------------------ |
+| Guarantees the integrity of data. | Requires a reliable connection between the two devices. If one small chunk of data is not received, then the entire chunk of data cannot be used and must be re-sent. |
+| Capable of synchronising two devices to prevent each other from being flooded with data in the wrong order. | A slow connection can bottleneck another device as the connection will be reserved on the other device the whole time. |
+| Performs a lot more processes for reliability |TCP is significantly slower than UDP because more work (computing) has to be done by the devices using this protocol. |
