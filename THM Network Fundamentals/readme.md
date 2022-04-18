@@ -586,6 +586,9 @@ One defining feature of TCP is that it is connection-based, which means that TCP
 
 
 Because of this, TCP guarantees that any data sent will be received on the other end. This process is named the Three-way handshake, which is something we'll come on to discuss shortly. A table comparing the advantages and disadvantages of TCP is located below:
+
+#### Table
+
 | Advantages of TCP             | Disadvantages of TCP                                   |
 | ----------------- | ------------------------------------------------------------------ |
 | Guarantees the integrity of data. | Requires a reliable connection between the two devices. If one small chunk of data is not received, then the entire chunk of data cannot be used and must be re-sent. |
