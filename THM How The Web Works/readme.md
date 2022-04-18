@@ -85,3 +85,36 @@ AAAA
 4. The TLD server holds records for where to find the authoritative server to answer the DNS request. The authoritative server is often also known as the nameserver for the domain. For example, the name server for tryhackme.com is kip.ns.cloudflare.com and uma.ns.cloudflare.com. You'll often find multiple nameservers for a domain name to act as a backup in case one goes down.
 5. An authoritative DNS server is the server that is responsible for storing the DNS records for a particular domain name and where any updates to your domain name DNS records would be made. Depending on the record type, the DNS record is then sent back to the Recursive DNS Server, where a local copy will be cached for future requests and then relayed back to the original client that made the request. DNS records all come with a TTL (Time To Live) value. This value is a number represented in seconds that the response should be saved for locally until you have to look it up again. Caching saves on having to make a DNS request every time you communicate with a server.
 
+- What field specifies how long a DNS record should be cached for?
+```
+TTL
+```
+- What type of DNS Server is usually provided by your ISP?
+```
+recursive
+```
+- What type of server holds all the records for a domain?
+```
+authoritative
+```
+
+### Task 5  Practical
+Using the website on the right, we can build requests to make DNS queries and view the results. The website will also show you the command you'd need to run on your own computer if you wished to make the requests yourself.
+Answer the questions below
+
+- What is the CNAME of shop.website.thm?
+```
+shops.myshopify.com
+```
+- What is the value of the TXT record of website.thm?
+```
+THM{7012BBA60997F35A9516C2E16D2944FF}
+```
+- What is the numerical priority value for the MX record?
+```
+30
+```
+- What is the IP address for the A record of www.website.thm?
+```
+10.10.10.10
+```
