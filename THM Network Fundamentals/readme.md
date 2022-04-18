@@ -628,3 +628,81 @@ Next, we'll come on to discuss the Three-way handshake - the term given for the 
 |4|	DATA|	Once a connection has been established, data (such as bytes of a file) is sent via the "DATA" message.|
 |5|	FIN|	This packet is used to cleanly (properly) close the connection after it has been complete.|
 |#|	RST|	This packet abruptly ends all communication. This is the last resort and indicates there was some problem during the process. For example, if the service or application is not working correctly, or the system has faults such as low resources. |
+
+The diagram below shows a normal Three-way handshake process between Alice and Bob. In real life, this would be between two devices.
+[TCP Handshake](https://assets.tryhackme.com/additional/networking-fundamentals/packets-frames/tcphandshake.png)
+
+Any sent data is given a random number sequence and is reconstructed using this number sequence and incrementing by 1. Both computers must agree on the same number sequence for data to be sent in the correct order. This order is agreed upon during three steps:
+
+1. SYN - Client: Here's my Initial Number Sequence (ISN) to SYNchronise with (0)
+2. SYN/ACK - Server: Here's my Initial Number Sequence (ISN) to SYNchronise with (5,000), and I ACKnowledge your initial number sequence (0)
+3. ACK - Client: I ACKnowledge your Initial Number Sequence (ISN) of (5,000), here is some data that is my ISN+1 (5,000 + 1)
+
+#### Table
+
+|Device|Initial Number Sequence (ISN)	|Final Number Sequence	|
+| ----------------- | ----------------- | ------------------------------------------------------------------ |
+|Client (Sender)	|0|0 + 1 = 1|
+|Client (Sender)	|1|    1 + 1 = 2	|
+|Client (Sender)	|2|2 + 1 = 3|
+
+TCP Closing a Connection:
+Let's quickly explain the process behind TCP closing a connection. First, TCP will close a connection once a device has determined that the other device has successfully received all of the data.
+
+Because TCP reserves system resources on a device, it is best practice to close TCP connections as soon as possible.
+
+To initiate the closure of a TCP connection, the device will send a "FIN" packet to the other device. Of course, with TCP, the other device will also have to acknowledge this packet.
+
+Let's show this process using Alice and Bob as we have previously.
+
+[TCP Handshake](https://assets.tryhackme.com/additional/networking-fundamentals/packets-frames/tcphandshake-2.png)
+
+In the illustration, we can see that Alice has sent Bob a "FIN" packet. Because Bob received this, he will let Alice know that he received it and that he also wants to close the connection (using FIN). Alice has heard Bob loud and clear and will let Bob know that she acknowledges this.
+
+- What is the header in a TCP packet that ensures the integrity of data?
+```
+checksum
+```
+- Provide the order of a normal Three-way handshake (with each step separated by a comma)
+```
+SYN,SYN/ACK,ACK
+```
+
+### Task 3  Practical - Handshake
+Help Alice and Bob communicate by re-assembling the TCP handshake in the correct order in the static lab attached to this task!
+
+Enter the value of the flag given at the end of the conversation into the question below.
+
+- What is the value of the flag given at the end of the conversation?
+```
+THM{TCP_CHATTER}
+```
+
+### Task 4  UDP/IP
+The User Datagram Protocol (UDP) is another protocol that is used to communicate data between devices.
+
+
+
+Unlike its brother TCP, UDP is a stateless protocol that doesn't require a constant connection between the two devices for data to be sent. For example, the Three-way handshake does not occur, nor is there any synchronisation between the two devices.
+
+
+
+Recall some of the comparisons made about these two protocols in Room 3: "OSI Model". Namely, UDP is used in situations where applications can tolerate data being lost (such as video streaming or voice chat) or in scenarios where an unstable connection is not the end-all. A table comparing the advantages and disadvantages of UDP is located below:
+
+#### Table
+
+|Advantages of UDP|Disadvantages of UDP|
+|----------------|-----------------------|
+|UDP is much faster than TCP.|UDP doesn't care if the data is received or not.|
+|UDP leaves the application (user software) to decide if there is any control over how quickly packets are sent.|It is quite flexible to software developers in this sense.|
+|UDP does not reserve a continuous connection on a device as TCP does.|This means that unstable connections result in a terrible experience for the user.|
+
+
+As mentioned, no process takes place in setting up a connection between two devices. Meaning that there is no regard for whether or not data is received, and there are no safeguards such as those offered by TCP, such as data integrity.
+
+
+
+UDP packets are much simpler than TCP packets and have fewer headers. However, both protocols share some standard headers, which are what is annotated in the table below:
+
+#### Table
+
