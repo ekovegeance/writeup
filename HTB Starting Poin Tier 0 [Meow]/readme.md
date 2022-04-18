@@ -41,7 +41,9 @@ telnet
 root
 ```
 ### SUBMIT FLAG
-```
+
+
+```bash
 root# ping 10.129.206.241
 root# nmap -sV 10.129.206.241
 the open port is 23/tcp Telnet
