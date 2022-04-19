@@ -37,3 +37,4 @@ After completing this path, you should be able to:
 You need a basic understanding of how web applications work to complete this pathway. If you do not already have these prerequisites, complete the Pre-Security Pathway first.
 
 - [THM How The Web Works](https://writeup.ekovegeance.com/THM%20How%20The%20Web%20Works/)
+- [THM Introduction to Web Hacking](https://writeup.ekovegeance.com/THM%20Introduction%20to%20Web%20Hacking/)
